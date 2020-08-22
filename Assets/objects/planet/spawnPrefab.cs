@@ -10,10 +10,17 @@ public class spawnPrefab : MonoBehaviour
 
     public float minPrefabSize = 1;
     public float maxPrefabSize = 1;
-   
-    void Start() {
-        planetRadius = GetComponent<SphereCollider>().radius;
 
+    GameObject rootParent;
+    void Start() {
+        
+    }
+
+    public void SpawnPrefab() {
+        planetRadius = GetComponent<SphereCollider>().radius;
+        string rootParentName = prefab.name + " root";
+        rootParent = new GameObject(rootParentName);
+        rootParent.transform.parent = transform;
         SpawnPrefabs();
     }
 
@@ -25,7 +32,7 @@ public class spawnPrefab : MonoBehaviour
             Vector3 origin = transform.position;
             Vector3 onPlanet = Random.onUnitSphere * planetRadius;
 
-            GameObject prefabSpawn = Instantiate(prefab, onPlanet, Quaternion.identity) as GameObject;
+            GameObject prefabSpawn = Instantiate(prefab, onPlanet, Quaternion.identity, rootParent.transform) as GameObject;
             prefabSpawn.transform.LookAt(transform.position);
             prefabSpawn.transform.rotation = prefabSpawn.transform.rotation * Quaternion.Euler(-90, 0, 0);
             float rng = Random.Range(minPrefabSize, maxPrefabSize);

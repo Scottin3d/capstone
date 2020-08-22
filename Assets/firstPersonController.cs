@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class firstPersonController : MonoBehaviour
 {
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
 
     public float mouseSensitivityX = 250f;
     public float mouseSensitivityY = 250f;
 
-    private Transform camera;
+    private new Transform camera;
     private float verticalLookRotation;
 
     private Vector3 moveAmount;
@@ -22,7 +22,8 @@ public class firstPersonController : MonoBehaviour
 
     [SerializeField]
     private float jumpForce = 220f;
-    private bool isGrounded = true;
+    public  bool isGrounded = true;
+
     [SerializeField]
     private LayerMask groundedMask;
 
@@ -37,15 +38,26 @@ public class firstPersonController : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        if (Input.GetKeyDown("Jump") && isGrounded) {
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             isGrounded = false;
             rigidbody.AddForce(transform.up * jumpForce);
         }
 
-        // only will call with player in not grounded 
+        Ray ray = new Ray(transform.position, -transform.up);
+        RaycastHit hit;
+
+        // out allows the method to modify the variable &* in c++ 
+        // out does not need to be initialized
+        if (Physics.Raycast(ray, out hit, 1 + 0.1f, groundedMask)) {
+            isGrounded = true;
+        }
+
+        /*/ only will call with player in not grounded 
         if (!isGrounded) {
             CheckIfGrounded();
         }
+        */
         
     }
     private void FixedUpdate() {
@@ -54,12 +66,12 @@ public class firstPersonController : MonoBehaviour
 
     // handles camera rotataion
     private void HandleMovement() {
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.smoothDeltaTime * mouseSensitivityX);
+        //transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.smoothDeltaTime * mouseSensitivityX);
         verticalLookRotation += Input.GetAxis("Mouse Y") * Time.smoothDeltaTime * mouseSensitivityY;
 
         // clamp vaules between locks -- add adjustable variable
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -10, 0);
-        camera.localEulerAngles = Vector3.left * verticalLookRotation;
+        //camera.localEulerAngles = Vector3.left * verticalLookRotation;
 
         // raw -- no native smoothing
         // normalize clamps values
