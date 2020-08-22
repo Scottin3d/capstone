@@ -58,7 +58,7 @@ public class firstPersonController : MonoBehaviour
         verticalLookRotation += Input.GetAxis("Mouse Y") * Time.smoothDeltaTime * mouseSensitivityY;
 
         // clamp vaules between locks -- add adjustable variable
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -20, 0);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -10, 0);
         camera.localEulerAngles = Vector3.left * verticalLookRotation;
 
         // raw -- no native smoothing
@@ -69,14 +69,16 @@ public class firstPersonController : MonoBehaviour
         // ref allows method to modify variable
         // float smoothTime -- lower < Faster <> Slower > higher
         // make adjustable
-        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f);
+        //moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f);
+        moveAmount = targetMoveAmount;
     }
 
     private void Movement() {
         // MovePosition -- world space
         // player needs to move in local space
         // modify moveAmout into local space with TransformDirection
-        rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveAmount) * Time.smoothDeltaTime);
+
     }
 
     private void CheckIfGrounded() {

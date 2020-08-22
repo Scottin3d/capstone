@@ -7,6 +7,9 @@ public class spawnPrefab : MonoBehaviour
     public int numObjects = 10;
     public GameObject prefab;
     private float planetRadius;
+
+    public float minPrefabSize = 1;
+    public float maxPrefabSize = 1;
    
     void Start() {
         planetRadius = GetComponent<SphereCollider>().radius;
@@ -22,9 +25,12 @@ public class spawnPrefab : MonoBehaviour
             Vector3 origin = transform.position;
             Vector3 onPlanet = Random.onUnitSphere * planetRadius;
 
-            GameObject newGO = Instantiate(prefab, onPlanet, Quaternion.identity) as GameObject;
-            newGO.transform.LookAt(transform.position);
-            newGO.transform.rotation = newGO.transform.rotation * Quaternion.Euler(-90, 0, 0);
+            GameObject prefabSpawn = Instantiate(prefab, onPlanet, Quaternion.identity) as GameObject;
+            prefabSpawn.transform.LookAt(transform.position);
+            prefabSpawn.transform.rotation = prefabSpawn.transform.rotation * Quaternion.Euler(-90, 0, 0);
+            float rng = Random.Range(minPrefabSize, maxPrefabSize);
+
+            prefabSpawn.transform.localScale = new Vector3(rng, rng , rng);
 
         }
 
