@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class firstPersonController : MonoBehaviour
 {
+
     private new Rigidbody rigidbody;
 
 
@@ -30,6 +31,7 @@ public class firstPersonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rigidbody = GetComponent<Rigidbody>();
         camera = Camera.main.transform;    
     }
@@ -63,6 +65,9 @@ public class firstPersonController : MonoBehaviour
     private void FixedUpdate() {
         Movement();
     }
+
+    
+    
 
     // handles camera rotataion
     private void HandleMovement() {
