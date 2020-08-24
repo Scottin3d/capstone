@@ -9,17 +9,22 @@ public class playerParticles : MonoBehaviour
 
     public ParticleSystem PS;
 
-    private void Start() {
+    private void Awake() {
         PS.Stop();
+        PS.gameObject.SetActive(false);
+
     }
 
     private void FixedUpdate() {
         CalculateSpeed();
         if (speed > 0f) {
             PS.Play();
-            PS.playbackSpeed = speed;
+            PS.gameObject.SetActive(true);
+
+            PS.playbackSpeed = speed / 4f;
         } else {
             PS.Stop();
+            PS.gameObject.SetActive(false);
         }
     }
 
