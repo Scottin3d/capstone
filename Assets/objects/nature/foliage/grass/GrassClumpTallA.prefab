@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5154506208440736584}
-  - component: {fileID: 32722502517197359}
   - component: {fileID: 6946824136128731000}
+  - component: {fileID: 6813145279822147293}
   m_Layer: 10
   m_Name: GrassClumpTallA
   m_TagString: Foliage
@@ -36,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &32722502517197359
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2659397903573000490}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.25
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6946824136128731000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +50,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 5
   isActive: 0
+--- !u!136 &6813145279822147293
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2659397903573000490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.17
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.21, z: 0}
 --- !u!1001 &4116719213769611793
 PrefabInstance:
   m_ObjectHideFlags: 0

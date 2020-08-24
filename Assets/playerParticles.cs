@@ -10,7 +10,7 @@ public class playerParticles : MonoBehaviour
     public ParticleSystem PS;
 
     private void Start() {
-        PS.Pause();
+        PS.Stop();
     }
 
     private void FixedUpdate() {
@@ -19,7 +19,7 @@ public class playerParticles : MonoBehaviour
             PS.Play();
             PS.playbackSpeed = speed;
         } else {
-            PS.Pause();
+            PS.Stop();
         }
     }
 

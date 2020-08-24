@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class spawnPrefab : MonoBehaviour
 {
+    public Collider[] colliders;
+
     public int numObjects = 10;
+
+    
     public GameObject prefab;
     private float planetRadius;
 
@@ -32,12 +36,23 @@ public class spawnPrefab : MonoBehaviour
             Vector3 origin = transform.position;
             Vector3 onPlanet = Random.onUnitSphere * planetRadius;
 
+            float prefabRadius = prefab.GetComponent<CapsuleCollider>().radius;
+            colliders = Physics.OverlapSphere(onPlanet, prefabRadius);
+
+            if (colliders.Length > 1) {
+
+                Debug.Log("Collider Hit! Skipping position");
+                //i--;
+                //continue;
+            }
+            
+
             GameObject prefabSpawn = Instantiate(prefab, onPlanet, Quaternion.identity, rootParent.transform) as GameObject;
             prefabSpawn.transform.LookAt(transform.position);
             prefabSpawn.transform.rotation = prefabSpawn.transform.rotation * Quaternion.Euler(-90, 0, 0);
             float rng = Random.Range(minPrefabSize, maxPrefabSize);
 
-            prefabSpawn.transform.localScale = new Vector3(rng, rng , rng);
+            prefabSpawn.transform.localScale *= rng;
 
         }
 

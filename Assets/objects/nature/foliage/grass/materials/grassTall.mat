@@ -66,14 +66,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _metallic:
-        m_Texture: {fileID: 2800000, guid: bec076eae784cb645bba6498511dda85, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _normal:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _normal:
+        m_Texture: {fileID: 2800000, guid: aca528ebaca022a40b0390c2709ca56f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_4969DDEE: 0
     - Vector1_229934FB: 1
     - Vector1_38902C78: 5
     - Vector1_57C201A: -2
