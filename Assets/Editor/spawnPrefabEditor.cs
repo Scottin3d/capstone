@@ -13,5 +13,7 @@ public class NewBehaviourScript : Editor
         if (GUILayout.Button("Generate Prefabs")) {
             script.SpawnPrefab();
         }
+
+
     }
 }

@@ -5068,6 +5068,8 @@ GameObject:
   - component: {fileID: 5769626046008459986}
   - component: {fileID: 5769626046008459985}
   - component: {fileID: 5769626046008459984}
+  - component: {fileID: 257870485371957694}
+  - component: {fileID: 6613121096723140986}
   m_Layer: 11
   m_Name: Sphere
   m_TagString: Player
@@ -5196,9 +5198,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivityX: 250
   mouseSensitivityY: 250
-  moveSpeed: 5
+  moveSpeed: 10
   jumpForce: 220
   isGrounded: 1
   groundedMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &257870485371957694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769626046008459990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f98aff4ad971d7459b7fb6bd867c9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!114 &6613121096723140986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769626046008459990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7979fa781abd76242acc5cffd817e1b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PS: {fileID: 594224702748727259}
+  player: {fileID: 257870485371957694}

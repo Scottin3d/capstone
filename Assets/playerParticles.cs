@@ -4,34 +4,26 @@ using UnityEngine;
 
 public class playerParticles : MonoBehaviour
 {
-    public float speed;
-    Vector3 PreviousFramePosition = Vector3.zero;
-
     public ParticleSystem PS;
+    public playerAttributes player;
 
-    private void Awake() {
+    private void Awake () {
         PS.Stop();
         PS.gameObject.SetActive(false);
 
     }
 
     private void FixedUpdate() {
-        CalculateSpeed();
-        if (speed > 0f) {
+        if (player.speed > 0f) {
             PS.Play();
             PS.gameObject.SetActive(true);
 
-            PS.playbackSpeed = speed / 4f;
+            PS.playbackSpeed = player.speed / 4f;
         } else {
             PS.Stop();
             PS.gameObject.SetActive(false);
         }
     }
 
-    private void CalculateSpeed() {
-        // speed calculation
-        float movementPerFrame = Vector3.Distance(PreviousFramePosition, transform.position);
-        speed = movementPerFrame / Time.deltaTime;
-        PreviousFramePosition = transform.position;
-    }
+    
 }

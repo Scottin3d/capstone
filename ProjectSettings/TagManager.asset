@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Planet
   - Foliage
+  - Rock
+  - Tree
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Ground
   - Foliage
   - Player
-  - 
-  - 
+  - Rock
+  - Tree
   - 
   - 
   - 
