@@ -7,12 +7,17 @@ public class playerAttributes : MonoBehaviour
     public float speed;
     Vector3 PreviousFramePosition = Vector3.zero;
 
-
+    [SerializeField]
+    private float baseHitStrength = 10f;
     private void FixedUpdate() {
         CalculateSpeed();
     }
     public float Speed() {
         return speed;
+    }
+
+    public float HitForce() {
+        return speed * baseHitStrength;
     }
     private void CalculateSpeed() { 
         // speed calculation
@@ -20,4 +25,6 @@ public class playerAttributes : MonoBehaviour
         speed = movementPerFrame / Time.deltaTime;
         PreviousFramePosition = transform.position;
     }
+
+    
 }

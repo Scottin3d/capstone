@@ -36,17 +36,12 @@ public class spawnPrefab : MonoBehaviour {
         SpawnPrefabs();
     }
 
-    private void SetLayerIngore() {
-        
-    }
-
     private void SpawnPrefabs() {
         for (int i = 0; i < numObjects; i++) {
 
             Vector3 origin = transform.position;
             Vector3 onPlanet = Random.onUnitSphere * planetRadius;
 
-            
             colliders = Physics.OverlapSphere(onPlanet, prefabRadius);
 
             // debug statement
@@ -54,15 +49,13 @@ public class spawnPrefab : MonoBehaviour {
             
             if (colliders.Length > 1 && !prefabObject.ignoreAll) {
                 // debug statement
-                GameObject testSphere = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere), onPlanet, Quaternion.identity, rootParent.transform) as GameObject;
-                testSphere.transform.localScale = new Vector3(1f, 1f, 1f);
-                testSphere.GetComponent<MeshRenderer>().sharedMaterial.color = Color.red;
+                //GameObject testSphere = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere), onPlanet, Quaternion.identity, rootParent.transform) as GameObject;
+                //testSphere.transform.localScale = new Vector3(1f, 1f, 1f);
+                //testSphere.GetComponent<MeshRenderer>().sharedMaterial.color = Color.red;
                 Debug.Log("Collider Hit! Skipping position");
                 //i--;
                 //continue;
-            } /*else {
-
-                // test code to spawning overlap
+            }else {
                 GameObject prefabSpawn = Instantiate(prefab, onPlanet, Quaternion.identity, rootParent.transform) as GameObject;
                 prefabSpawn.transform.LookAt(transform.position);
                 prefabSpawn.transform.rotation = prefabSpawn.transform.rotation * Quaternion.Euler(-90, 0, 0);
@@ -70,7 +63,7 @@ public class spawnPrefab : MonoBehaviour {
 
                 prefabSpawn.transform.localScale *= rng;
             }
-            */
+           
         }
     }
 }

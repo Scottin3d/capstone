@@ -14,6 +14,7 @@ public class playerParticles : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        /*
         if (player.speed > 0f) {
             PS.Play();
             PS.gameObject.SetActive(true);
@@ -23,6 +24,7 @@ public class playerParticles : MonoBehaviour
             PS.Stop();
             PS.gameObject.SetActive(false);
         }
+        */
     }
 
     

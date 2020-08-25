@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac20d8dd3ec756e4e8847de4fd0e60e2, type: 3}
-  m_Name: Rocks
+  m_Name: rocks
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 4909328559939480790, guid: 15e24e7a4ca70fe4abbba768f19ed631, type: 3}
   - {fileID: 5139831567318688000, guid: 62afa8581bfb55d4ea4c2e5fe05ad917, type: 3}
   - {fileID: 4343825376240963049, guid: 7b9279bfe82c3e24390365baf76adc2b, type: 3}
   boundingSize: 0.04367041
-  prefabOverlap: 0
+  ignoreAll: 0
