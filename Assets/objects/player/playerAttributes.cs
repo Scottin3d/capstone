@@ -17,7 +17,7 @@ public class playerAttributes : MonoBehaviour
     }
 
     public float HitForce() {
-        return speed * baseHitStrength;
+        return (speed * baseHitStrength) /  10f;
     }
     private void CalculateSpeed() { 
         // speed calculation
