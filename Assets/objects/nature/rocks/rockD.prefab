@@ -109,5 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4953731ddb44a7443b58de7432fb6ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBreakable: 1
   PS: {fileID: 0}
+  cracks: {fileID: 0}
   objectHealth: 50
